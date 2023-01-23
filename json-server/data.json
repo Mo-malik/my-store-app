@@ -11,7 +11,7 @@
         {
             "id":2,
             "name":"baguette",
-            "price":"15",
+            "price":"10",
             "description":"baguette baguette",
             "image":"assets/Bakery/baguette.jpg",
             "count":0
@@ -19,7 +19,7 @@
         {
             "id":3,
             "name":"boule-de-pain",
-            "price":"15",
+            "price":"20",
             "description":"oule-de-pain",
             "image":"assets/Bakery/boule-de-pain.jpg",
             "count":0
@@ -27,7 +27,7 @@
         {
             "id":4,
             "name":"brioche",
-            "price":"15",
+            "price":"30",
             "description":"brioche",
             "image":"assets/Bakery/brioche.jpg",
             "count":0
@@ -43,7 +43,7 @@
         {
             "id":6,
             "name":"ajun-Creole-Seasoning",
-            "price":"15",
+            "price":"13",
             "description":"Anadama_bread ",
             "image":"assets/Spices/homemade-italian.jpg",
             "count":0
@@ -52,7 +52,7 @@
         {
             "id":7,
             "name":"pain-depices",
-            "price":"15",
+            "price":"28",
             "description":"pain-depices",
             "image":"assets/Bakery/pain-depices.jpg",
             "count":0
@@ -60,7 +60,7 @@
         {
             "id":8,
             "name":"Turkish-Spice-Blend-square",
-            "price":"15",
+            "price":"18",
             "description":"Turkish-Spice-Blend-square",
             "image":"assets/Bakery/Turkish-Spice-Blend-square.jpg",
             "count":0
