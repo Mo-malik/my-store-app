@@ -1,0 +1,15 @@
+.container{
+    margin-top:70px ;
+}
+.product-cart{
+    height: 400px !important;
+}
+.image{
+    border-radius:10%;
+    width: 95%;
+    height: 70%;
+}
+.image-contaoner{
+    height: 500px !important;
+  
+}

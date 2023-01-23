@@ -1,0 +1,9 @@
+<div class="container" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="25" fxLayoutAlign="center center">
+
+<app-product-item *ngFor="let product of products" [product]="product" 
+ (addedproduct)="alertUser($event)"  fxLayout="column" fxFlex="22" class="product-card">
+
+
+</app-product-item>
+
+</div>

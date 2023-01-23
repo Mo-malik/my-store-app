@@ -1,0 +1,44 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card fxFlex="50" fxLayoutAlign="center start" class="product-cart">
+
+    <div fxFlex class="image-contaoner">
+      <img [src]="product.image" class="image">
+    </div>
+    <div fxFlex fxLayout="column">
+
+      <mat-list>
+        <div mat-header>Product Details </div>
+        <mat-list-item>
+          <div matListItemTitle>Product Name</div>
+          <div matListItemLine>{{product.name}}</div>
+        </mat-list-item>
+        <mat-list-item>
+          <div matListItemTitle>Price</div>
+          <div matListItemLine>{{product.price |currency}}</div>
+        </mat-list-item>
+        <mat-list-item>
+          <div matListItemTitle>Description</div>
+          <div matListItemLine>{{product.description}}</div>
+        </mat-list-item>
+      </mat-list>
+
+      <mat-card-actions fxFlex="20" fxLayoutAlign="space-around center">
+
+        <div fxFlex="100" [fxHide]="product.count">
+          <button mat-raised-button color="primary" (click)="add(product)" fxFlex="100">Add to cart</button>
+        </div>
+
+        <div fxFlex="100" [fxHide]="!product.count" fxLayout="row" fxLayoutAlign="space-evenly center">
+          <button mat-fab color="primary" (click)="removeItem(product)"> <mat-icon>remove</mat-icon></button>
+          <p> {{product.count}} in cart</p>
+          <button mat-fab color="primary" (click)="add(product)"> <mat-icon>add</mat-icon></button>
+        </div>
+
+
+      </mat-card-actions>
+    </div>
+  </mat-card>
+
+
+</div>

@@ -1,0 +1,24 @@
+
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card fxFlex="50">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{user.username}}</mat-card-title>
+            <mat-card-subtitle>{{user.address}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem" *ngFor="let product of products">
+                
+                    <span> {{product.name}}</span> * <span>{{product.count}}</span> <span>Price : {{product.price |currency}}</span>
+                
+                </mat-list-item>
+              </mat-list>
+              <span> Totel Price : {{totalPrice |currency}}</span>
+          </mat-card-content>
+
+    </mat-card>
+
+
+</div>

@@ -1,0 +1,80 @@
+<div class="container" fxLayout="row" fxLayoutAlign="space-around start">
+
+  <div fxFlex="60">
+
+    <mat-table [dataSource]="cart" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
+        <mat-cell *matCellDef="let element"><img [src]="element.image" mat-card-sm-image> </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="count">
+        <mat-header-cell *matHeaderCellDef> count </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.count}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef> price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.price*element.count |currency}} </mat-cell>
+      </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div fxFlex="100" [fxHide]="element.count">
+            <button mat-raised-button color="primary" (click)="add(element)" fxFlex="100">Add to cart</button>
+
+          </div>
+
+          <div fxFlex="100" [fxHide]="!element.count" fxLayout="row" fxLayoutAlign="space-evenly center">
+            <button mat-fab color="primary" (click)="removeItem(element)"> <mat-icon>remove</mat-icon></button>
+            <p> {{element.count}} in cart</p>
+            <button mat-fab color="primary" (click)="add(element)"> <mat-icon>add</mat-icon></button>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+  <div fxFlex="30">
+    <mat-card fxLayout="column">
+      <mat-card-title fxFlexAlign="center" style="margin:30px ;">Personal Data</mat-card-title>
+      <form class="example-form" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>username</mat-label>
+          <input type="text" matInput placeholder="username" formControlName="username" minlength="3">
+          <mat-error *ngIf="formGroup.controls['username'].hasError('required')"> username required</mat-error>
+          <mat-error *ngIf="formGroup.controls['username'].hasError('minlength')"> less than 3</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input type="text" matInput placeholder="Address" formControlName="address">
+          <mat-error *ngIf="formGroup.controls['username'].hasError('required')"> Adress required</mat-error>
+          <mat-error *ngIf="formGroup.controls['username'].hasError('minlength')"> less than 3</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Master card</mat-label>
+          <input type="text" matInput placeholder=" * * * *" formControlName="card" (ngModelChange)="validCard()">
+          <mat-error *ngIf="missMatch('card')"> missMatch number only</mat-error>
+          <mat-error *ngIf="lessNumber('card')"> less than 11</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Place Order</button>
+      </form>
+
+    </mat-card>
+
+  </div>
+
+</div>
