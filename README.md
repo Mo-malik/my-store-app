@@ -11,20 +11,6 @@ Run `npm install `
 or
 Run `npm install --force`
 
-# Secode step to install Json-server in root directory
-
-Run `npm install -g json-server`
-or
-Run `npm install -g json-server --force`
-
-# third step to install Json-server for httpClient call
-
- go inside the root directory
-
- Run `cd json-server`
-
- Run `json-server --watch data.json`
-
 
 ## Development server
 
