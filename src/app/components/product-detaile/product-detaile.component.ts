@@ -15,18 +15,19 @@ export class ProductDetaileComponent implements OnInit, OnDestroy {
   id: any;
   product: Product;
   sunscribtion: Subscription
-
+  allProduct:Product[]
   constructor(private roter: ActivatedRoute, private productService: ProductService,
     private CartService: CartService) {
   }
 
   ngOnInit(): void {
     this.id = this.roter.snapshot.paramMap.get('id');
-    this.sunscribtion = this.productService.getProductById(this.id).subscribe(data => {
-      this.product = data
+    this.sunscribtion=this.productService.getProducts().subscribe(products=>{
+      this.allProduct=products
+      this.product=this.allProduct.filter(p=>p.id==this.id)[0]
       this.productService.checkProductCart(this.product)
-    }
-    )
+
+    })
   }
 
   add(product: Product) {

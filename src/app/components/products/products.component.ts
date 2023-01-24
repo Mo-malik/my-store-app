@@ -24,7 +24,11 @@ export class ProductsComponent implements OnInit ,OnDestroy{
   ngOnInit(): void {
 
     this.sunscribtion=this.productService.getProducts().subscribe((data) => {
+      console.log(data);
+      
       this.products = data;
+      console.log(data);
+
     })
   }
 
